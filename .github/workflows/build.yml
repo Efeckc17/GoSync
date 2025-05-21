@@ -38,7 +38,7 @@ jobs:
             --hidden-import "paramiko" `
             --hidden-import "cryptography" `
             --hidden-import "scp" `
-            --icon=assets/app.ico `
+            --icon=assets/icons/app.ico `
             --add-data "assets;assets" `
             --add-data "themes/ui.qss;themes" `
             --add-data "ui;ui" `
