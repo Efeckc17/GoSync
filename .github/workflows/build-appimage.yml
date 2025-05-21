@@ -1,0 +1,93 @@
+name: Build and Release Linux App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libxcb-keysyms1 \
+            libxcb-render-util0 \
+            libxkbcommon-x11-0 \
+            libxcb-xinerama0 \
+            libxcb-image0 \
+            libxcb-xkb1 \
+            libxcb-shape0 \
+            libxcb-icccm4 \
+            appstream \
+            libfuse2
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build Linux App
+        run: |
+          pyinstaller --noconfirm --onefile --windowed --name GOSync \
+            --hidden-import "PySide6.QtCore" \
+            --hidden-import "PySide6.QtGui" \
+            --hidden-import "PySide6.QtWidgets" \
+            --hidden-import "paramiko" \
+            --hidden-import "cryptography" \
+            --hidden-import "scp" \
+            --add-data "assets:assets" \
+            --add-data "themes/ui.qss:themes" \
+            --add-data "ui:ui" \
+            --add-data "core:core" \
+            --add-data "utils:utils" \
+            main.py
+
+          mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/share/applications
+          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+
+          cp dist/GOSync AppDir/usr/bin/GOSync
+          cp assets/app.png AppDir/usr/share/icons/hicolor/256x256/apps/GOSync.png
+          cp assets/app.png AppDir/GOSync.png
+
+          echo "[Desktop Entry]" > AppDir/GOSync.desktop
+          echo "Name=GOSync" >> AppDir/GOSync.desktop
+          echo "Exec=GOSync" >> AppDir/GOSync.desktop
+          echo "Icon=GOSync" >> AppDir/GOSync.desktop
+          echo "Type=Application" >> AppDir/GOSync.desktop
+          echo "Categories=Utility;Network;" >> AppDir/GOSync.desktop
+          echo "Comment=Secure File Backup and Sync Application" >> AppDir/GOSync.desktop
+
+          echo '#!/bin/sh' > AppDir/AppRun
+          echo 'exec "$APPDIR/usr/bin/GOSync" "$@"' >> AppDir/AppRun
+          chmod +x AppDir/AppRun
+
+      - name: Create AppImage
+        run: |
+          curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool
+          chmod +x appimagetool
+          ./appimagetool AppDir
+          mkdir -p dist
+          mv GOSync-x86_64.AppImage dist/
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          files: 'dist/GOSync-x86_64.AppImage'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
