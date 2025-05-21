@@ -1,0 +1,222 @@
+/* Base Styles */
+* {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 10pt;
+    margin: 0;
+    padding: 0;
+}
+
+QWidget {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+QWidget:focus {
+    outline: none;
+    border: none;
+}
+
+/* Labels */
+QLabel {
+    background: transparent;
+    color: #ffffff;
+    font-size: 12pt;
+}
+
+QLabel#titleLabel {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #ff4444;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+QLabel#sectionLabel {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #ff6666;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+/* Frames */
+QFrame {
+    background: transparent;
+    border: none;
+}
+
+/* Buttons */
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ff4444, stop:1 #ff6666);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 12px 28px;
+    font-size: 12pt;
+    font-weight: bold;
+    min-width: 120px;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ff6666, stop:1 #ff4444);
+}
+
+QPushButton:pressed {
+    background-color: #cc3333;
+}
+
+QPushButton:disabled {
+    background-color: #333333;
+    color: #666666;
+}
+
+QPushButton#dangerButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #ff0000, stop:1 #cc0000);
+}
+
+QPushButton#dangerButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #cc0000, stop:1 #ff0000);
+}
+
+/* List Widget */
+QListWidget {
+    background: #232323;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 18px 12px;
+}
+
+QListWidget::item {
+    background: transparent;
+    color: #fff;
+    padding: 18px;
+    margin: 6px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+QListWidget::item:hover:!selected {
+    background-color: rgba(255,68,68,0.25);
+    border: 2px solid #ff4444;
+}
+
+QListWidget::item:selected {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #ff4444, stop:1 #ff6666);
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+/* Menu */
+QMenu {
+    background: #232323;
+    color: #fff;
+    border: 2px solid #444;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+QMenu::item {
+    padding: 10px 28px 10px 24px;
+    border-radius: 10px;
+}
+
+QMenu::item:selected {
+    background-color: #ff4444;
+}
+
+QMenu::separator {
+    height: 1px;
+    background-color: #444;
+    margin: 5px 0px;
+}
+
+/* Progress Bar */
+QProgressBar {
+    height: 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.1);
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 14px;
+}
+
+QProgressBar::chunk {
+    border-radius: 16px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #ff4444, stop:1 #ff6666);
+}
+
+/* Scroll Bars */
+QScrollBar:vertical,
+QScrollBar:horizontal {
+    background: #232323;
+    border-radius: 8px;
+    width: 14px;
+    height: 14px;
+}
+
+QScrollBar::handle:vertical,
+QScrollBar::handle:horizontal {
+    min-width: 28px;
+    min-height: 28px;
+    border-radius: 8px;
+    background: #444;
+}
+
+QScrollBar::handle:hover {
+    background-color: #ff4444;
+}
+
+QScrollBar::add-line,
+QScrollBar::sub-line {
+    width: 0;
+    height: 0;
+}
+
+/* Status Bar */
+QStatusBar {
+    background-color: #232323;
+    color: #ffffff;
+    padding: 10px;
+    border-top: 2px solid #444;
+    font-size: 11pt;
+}
+
+/* Line Edit */
+QLineEdit {
+    background-color: rgba(42,42,42,0.85);
+    color: #fff;
+    border: 2px solid #444;
+    border-radius: 16px;
+    padding: 12px;
+}
+
+QLineEdit:focus {
+    background-color: #222;
+    border: 2px solid #ff4444;
+}
+
+/* Text Edit */
+QTextEdit {
+    background: #232323;
+    color: #fff;
+    border: 2px solid #444;
+    border-radius: 16px;
+    padding: 12px;
+}
+
+QTextEdit:focus {
+    border: 2px solid #ff4444;
+}
+
+/* Tool Tips */
+QToolTip {
+    background-color: #232323;
+    color: #ffffff;
+    border: 2px solid #ff4444;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 11pt;
+} 

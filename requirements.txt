@@ -1,0 +1,4 @@
+PySide6>=6.6.1
+paramiko>=3.4.0
+cryptography>=42.0.2
+scp>=0.14.5 
