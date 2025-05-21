@@ -1,110 +1,133 @@
+<p align="center">
+  <img src="assets/app.png" alt="GOSync Logo">
+</p>
+
+<div align="center">
+
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org)
+[![Platform](https://img.shields.io/badge/platform-Windows%20|%20Linux-lightgrey.svg)](https://github.com/yourusername/GOSync)
+[![PySide6](https://img.shields.io/badge/GUI-PySide6-brightgreen.svg)](https://wiki.qt.io/Qt_for_Python)
+[![Security](https://img.shields.io/badge/security-SSH%20|%20SCP-green.svg)](https://github.com/yourusername/GOSync)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://github.com/yourusername/GOSync)
+
+</div>
+
 # GOSync - Secure File Backup Application
 
 GOSync is a desktop application that enables secure file backup and synchronization over SSH.
 
-## Features
+## ✨ Key Features
 
-- 🔒 Secure SSH connection
-- 🔄 Automatic file synchronization
-- 🕒 Customizable sync interval
-- 📁 Local folder customization
-- 🔐 Encrypted settings storage
-- 💻 Cross-platform support (Windows, Linux)
-- 🎯 Single instance application
-- 🌈 Modern and user-friendly interface
+### 🔒 Security
+- SSH key-based authentication support
+- Password-based authentication option
+- Encrypted configuration storage
+- Secure file transfer over SSH/SCP
 
-## Installation
+### 🔄 Synchronization
+- 🕒 Automatic sync with 10-second interval
+- 🚀 Manual "Sync Now" option
+- 📊 Real-time progress tracking
+- 🔍 Smart file change detection
 
-### Requirements
+### 📁 File Management
+- 🖱️ Drag & drop file support
+- 📥 Download files from server
+- 📤 Upload files to server
+- 🗑️ Delete local files
+- 🔄 Refresh file lists
 
+### 💻 User Interface
+- 🎨 Modern dark theme with custom styling
+- 🖥️ Dual-pane file view (Local/Remote)
+- 🔔 System tray integration with notifications
+- ⚙️ Easy-to-use settings dialog
+
+### 🛠️ Technical Features
+- 🎯 Single instance application support
+- 🌐 Cross-platform (Windows/Linux)
+- 📝 Detailed logging system
+- 🔌 Automatic reconnection handling
+
+## 📸 Screenshots
+
+### Main Window
+<p align="center">
+  <img src="assets/for-readme/home.png" alt="GOSync Main Window" width="800">
+  <br>
+  <em>Main interface showing local and remote file synchronization panels</em>
+</p>
+
+### Settings Dialog
+<p align="center">
+  <img src="assets/for-readme/settings.png" alt="GOSync Settings" width="800">
+  <br>
+  <em>Settings window for configuring SSH connection and sync preferences</em>
+</p>
+
+## 🚀 Installation
+
+### System Requirements
+- Windows or Linux operating system
 - Python 3.8 or higher
 - pip (Python package manager)
 
-### Steps
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Efeckc17/GoSync.git
-cd GOSync
-```
-
-2. Create virtual environment (recommended):
-```bash
-python -m venv venv
-# For Windows:
-venv\Scripts\activate
-# For Linux:
-source venv/bin/activate
-```
-
-3. Install required packages:
+### Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Start the application:
-```bash
-python main.py
-```
+Required packages:
+- PySide6 >= 6.6.1 (GUI framework)
+- paramiko >= 3.4.0 (SSH client)
+- cryptography >= 42.0.2 (Encryption)
+- scp >= 0.14.5 (File transfer)
 
-## Configuration
+## 🔧 Configuration
 
-Application settings are stored in the following locations based on the operating system:
-
+Settings are automatically saved in:
 - Windows: `%APPDATA%\GOSync`
 - Linux: `~/.config/GOSync`
 
-Synchronized files are stored by default in:
-- Windows: `C:\Users\Username\GOSyncFiles`
-- Linux: `~/GOSyncFiles`
+## 📖 Usage Guide
 
-## Security Features
+### Initial Setup
+1. Launch GOSync
+2. Click "Settings" to configure:
+   - SSH server details (hostname, username)
+   - Authentication (SSH key or password)
+   - Local and remote sync folders
 
-- SSH password and key are stored encrypted
-- Configuration files are protected with secure permissions (600)
-- Configuration directory is restricted to user access only (700)
-- Sensitive data is protected with Fernet encryption
-
-## Usage
-
-1. Click "Settings" button on first launch
-2. Enter SSH connection details:
-   - Server address
-   - Username
-   - Remote directory path
-   - SSH key or password
-3. Select local synchronization folder
-4. Click "Start Sync" to begin synchronization
-
-## Features
-
-### Automatic Synchronization
-- Start automatic sync with "Start Sync"
-- Stop with "Stop Sync"
-- Manual sync with "Sync Now"
+### Sync Operations
+- 🟢 Start Sync: Begin automatic synchronization
+- 🔄 Sync Now: Perform immediate sync
+- 🔴 Stop Sync: Pause synchronization
 
 ### File Operations
-- Right-click menu for file download/upload
-- Drag-and-drop support
-- Double-click to open files
+- Right-click on local files:
+  - Upload to Server
+  - Delete
+- Right-click on remote files:
+  - Download to Local
+  - Refresh List
 
 ### System Tray
-- Application continues running in system tray when closed
-- Quick access through right-click menu
-- Synchronization status notifications
+- Double-click: Show/hide window
+- Right-click menu:
+  - Show window
+  - Quick sync
+  - Access settings
+  - Quit application
 
-## Contributing
+## 🤝 Contributing
 
-1. Fork this repository
-2. Create a new branch (`git checkout -b feature/NewFeature`)
-3. Commit your changes (`git commit -am 'Add new feature: XYZ'`)
-4. Push to the branch (`git push origin feature/NewFeature`)
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
 5. Create a Pull Request
 
-## Author
-
-- [@Efeckc17](https://github.com/Efeckc17) - Desktop Application Developer
-
-## License
+## 📄 License
 
 This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details. 
