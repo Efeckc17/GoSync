@@ -1,6 +1,17 @@
 from PySide6.QtWidgets import QSystemTrayIcon, QMenu
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import Signal
+import os
+import sys
+
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    try:
+       
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 class SystemTrayIcon(QSystemTrayIcon):
     quit_requested = Signal()
@@ -9,7 +20,8 @@ class SystemTrayIcon(QSystemTrayIcon):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setIcon(QIcon("assets/icons/app.ico"))
+        icon_path = get_resource_path("assets/icons/app.ico")
+        self.setIcon(QIcon(icon_path))
         self.setToolTip("GOSync - File Synchronization")
         self.setup_menu()
         self.activated.connect(self._on_activated)

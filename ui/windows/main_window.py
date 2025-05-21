@@ -12,9 +12,19 @@ from core.sync.sync_manager import SyncManager
 from core.ssh.file_transfer import FileTransferManager
 import logging
 import os
+import sys
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
+
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller"""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 class MainWindow(QMainWindow):
     def __init__(self, config, parent=None):
@@ -34,11 +44,14 @@ class MainWindow(QMainWindow):
     
     def load_stylesheet(self):
         """Load the application stylesheet"""
-        qss_file = QFile("themes/ui.qss")
+        qss_path = get_resource_path("themes/ui.qss")
+        qss_file = QFile(qss_path)
         if qss_file.open(QFile.ReadOnly | QFile.Text):
             stylesheet = qss_file.readAll().data().decode()
             self.setStyleSheet(stylesheet)
             qss_file.close()
+        else:
+            logger.error(f"Failed to load stylesheet from {qss_path}")
     
     def check_and_start_sync(self):
         """Check if settings exist and start sync automatically"""
