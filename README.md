@@ -1,8 +1,8 @@
-<p align="center">
-  <img src="assets/app.png" alt="GOSync Logo">
+<p align="center" style="background-color:#f0f0f0; padding:10px; border-radius:10px;">
+  <img src="assets/app.png" alt="GOSync Logo" style="width:150px;">
 </p>
 
-<div align="center">
+<div align="center" style="margin-bottom:20px;">
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org)
@@ -20,48 +20,48 @@ GOSync is a desktop application that enables secure file backup and synchronizat
 ## ✨ Key Features
 
 ### 🔒 Security
-- SSH key-based authentication support
-- Password-based authentication option
-- Encrypted configuration storage
-- Secure file transfer over SSH/SCP
+- **SSH key-based authentication support**
+- **Password-based authentication option**
+- **Encrypted configuration storage**
+- **Secure file transfer over SSH/SCP**
 
 ### 🔄 Synchronization
-- 🕒 Automatic sync with 10-second interval
-- 🚀 Manual "Sync Now" option
-- 📊 Real-time progress tracking
-- 🔍 Smart file change detection
+- 🕒 **Automatic sync with 10-second interval**
+- 🚀 **Manual "Sync Now" option**
+- 📊 **Real-time progress tracking**
+- 🔍 **Smart file change detection**
 
 ### 📁 File Management
-- 🖱️ Drag & drop file support
-- 📥 Download files from server
-- 📤 Upload files to server
-- 🗑️ Delete local files
-- 🔄 Refresh file lists
+- 🖱️ **Drag & drop file support**
+- 📥 **Download files from server**
+- 📤 **Upload files to server**
+- 🗑️ **Delete local files**
+- 🔄 **Refresh file lists**
 
 ### 💻 User Interface
-- 🎨 Modern dark theme with custom styling
-- 🖥️ Dual-pane file view (Local/Remote)
-- 🔔 System tray integration with notifications
-- ⚙️ Easy-to-use settings dialog
+- 🎨 **Modern dark theme with custom styling**
+- 🖥️ **Dual-pane file view (Local/Remote)**
+- 🔔 **System tray integration with notifications**
+- ⚙️ **Easy-to-use settings dialog**
 
 ### 🛠️ Technical Features
-- 🎯 Single instance application support
-- 🌐 Cross-platform (Windows/Linux)
-- 📝 Detailed logging system
-- 🔌 Automatic reconnection handling
+- 🎯 **Single instance application support**
+- 🌐 **Cross-platform (Windows/Linux)**
+- 📝 **Detailed logging system**
+- 🔌 **Automatic reconnection handling**
 
 ## 📸 Screenshots
 
 ### Main Window
-<p align="center">
-  <img src="assets/for-readme/home.png" alt="GOSync Main Window" width="800">
+<p align="center" style="background-color:#f9f9f9; padding:10px; border-radius:10px;">
+  <img src="assets/for-readme/home.png" alt="GOSync Main Window" width="800" style="border:1px solid #ddd;">
   <br>
   <em>Main interface showing local and remote file synchronization panels</em>
 </p>
 
 ### Settings Dialog
-<p align="center">
-  <img src="assets/for-readme/settings.png" alt="GOSync Settings" width="800">
+<p align="center" style="background-color:#f9f9f9; padding:10px; border-radius:10px;">
+  <img src="assets/for-readme/settings.png" alt="GOSync Settings" width="800" style="border:1px solid #ddd;">
   <br>
   <em>Settings window for configuring SSH connection and sync preferences</em>
 </p>
@@ -100,33 +100,33 @@ Settings are automatically saved in:
    - Local and remote sync folders
 
 ### Sync Operations
-- 🟢 Start Sync: Begin automatic synchronization
-- 🔄 Sync Now: Perform immediate sync
-- 🔴 Stop Sync: Pause synchronization
+- 🟢 **Start Sync**: Begin automatic synchronization
+- 🔄 **Sync Now**: Perform immediate sync
+- 🔴 **Stop Sync**: Pause synchronization
 
 ### File Operations
 - Right-click on local files:
-  - Upload to Server
-  - Delete
+  - **Upload to Server**
+  - **Delete**
 - Right-click on remote files:
-  - Download to Local
-  - Refresh List
+  - **Download to Local**
+  - **Refresh List**
 
 ### System Tray
-- Double-click: Show/hide window
-- Right-click menu:
-  - Show window
-  - Quick sync
-  - Access settings
-  - Quit application
+- **Double-click**: Show/hide window
+- **Right-click menu**:
+  - **Show window**
+  - **Quick sync**
+  - **Access settings**
+  - **Quit application**
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+1. **Fork the repository**
+2. **Create a feature branch**
+3. **Commit your changes**
+4. **Push to the branch**
+5. **Create a Pull Request**
 
 ## 📄 License
 

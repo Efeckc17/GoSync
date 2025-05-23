@@ -2,13 +2,14 @@ from PySide6.QtWidgets import (
     QDialog, QVBoxLayout, QHBoxLayout, QLabel,
     QLineEdit, QPushButton, QTextEdit, QFileDialog
 )
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QFile
 
 class SettingsDialog(QDialog):
     def __init__(self, config, parent=None):
         super().__init__(parent)
         self.config = config
         self.setup_ui()
+        self.load_stylesheet()
         self.load_settings()
     
     def setup_ui(self):
@@ -144,4 +145,15 @@ class SettingsDialog(QDialog):
         
         self.config.save_ssh_settings(ssh_settings)
         self.config.save_sync_settings(sync_settings)
-        self.accept() 
+        self.accept()
+
+    def load_stylesheet(self):
+        """Load the application stylesheet"""
+        qss_path = "themes/ui.qss"
+        qss_file = QFile(qss_path)
+        if qss_file.open(QFile.ReadOnly | QFile.Text):
+            stylesheet = qss_file.readAll().data().decode()
+            self.setStyleSheet(stylesheet)
+            qss_file.close()
+        else:
+            print(f"Failed to load stylesheet from {qss_path}") 

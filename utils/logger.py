@@ -4,13 +4,13 @@ from pathlib import Path
 import codecs
 
 def setup_logger():
-    """Setup application logging"""
-    # Create logs directory
+    
+    
     log_dir = Path.home() / '.gosync' / 'logs'
     log_dir.mkdir(parents=True, exist_ok=True)
     log_file = log_dir / 'gosync.log'
     
-    # Configure logging with UTF-8 encoding
+    
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -20,7 +20,7 @@ def setup_logger():
         ]
     )
     
-    # Create logger
+    
     logger = logging.getLogger('GOSync')
     logger.setLevel(logging.INFO)
     
