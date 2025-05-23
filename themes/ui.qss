@@ -90,11 +90,21 @@ QListWidget {
 QListWidget::item {
     background: transparent;
     color: #fff;
-    padding: 18px;
+    padding: 10px 16px;
     margin: 6px;
     border-radius: 16px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
+    min-height: 36px;
+    line-height: 1.4em;
+}
+
+QListWidget::item:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+QListWidget::item:nth-child(odd) {
+    background-color: transparent;
 }
 
 QListWidget::item:hover:!selected {
@@ -104,8 +114,9 @@ QListWidget::item:hover:!selected {
 
 QListWidget::item:selected {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #ff4444, stop:1 #ff6666);
-    border: 2px solid #fff;
-    color: #fff;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 /* Menu */
@@ -162,7 +173,7 @@ QScrollBar::handle:horizontal {
     min-width: 28px;
     min-height: 28px;
     border-radius: 8px;
-    background: #444;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #444, stop:1 #666);
 }
 
 QScrollBar::handle:hover {
@@ -219,4 +230,4 @@ QToolTip {
     padding: 8px;
     border-radius: 8px;
     font-size: 11pt;
-} 
+}
